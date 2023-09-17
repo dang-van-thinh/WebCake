@@ -1,84 +1,143 @@
 <!-- header -->
 <div class="fixed-top fw-bold">
-                <nav class="navbar navbar-expand-lg bg-warning bg-gradient mb-5">
-                    <div class="container-fluid">
-                        <div class="navbar-brand">
-                            <a href="?act=home">
-                                <img src="../view/assets/img/customize/just-shop-logo.png" alt="Logo">
-                            </a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <ul class="navbar-nav px-5">
-                                <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="?act=home">Trang chủ</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Liên hệ</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Phản hồi</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Danh mục sản phẩm
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <?php foreach($loai as $key=>$item):?>
-                                         <li>
-                                            <a class="dropdown-item" href="?act=loaihh&iddm=<?=$item['ma_loai']?>"><?=$item['ten_loai']?></a>
-                                        </li>
-                                    <?php endforeach?>
-                                </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- login -->
-                       <div class="me-5">
-                        <?php
-                            if(isset($_SESSION['email']) && isset($_SESSION['password']) && isset($_SESSION['role'])): ?>
-                                <div class="d-flex">
-                                    <form action="" method="post" class="btn-group">
-                                        <label for=""><button type="submit" class="btn btn-outline-dark"><i class="fas fa-search"></i></button></label>
-                                        <input type="text" placeholder="Tìm kiếm..." class="form-control">
-                                    </form>
-                                    <div class="">
-                                        <a href="?act=cart" class="btn btn-outline-success px-4 mx-4">
-                                            <i class="fas fa-shopping-cart"></i>
-                                            <span id="numberCart"></span>
-                                        </a>
-                                    </div>
-                                    <div class="dropdown me-5">
-                                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <?php if( $_SESSION['img'] !=""):?> 
-                                            <img src="<?= $_SESSION['img']?>" alt="anhkhachhang" class="img_user">
-                                            <?php else :?>
-                                                <img src="../view/assets/img/customize/avatar-macdinh.webp" alt="anhkhachhang" class="img_user">
-                                            <?php endif?>
-                                        </a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-item">
-                                                <a href="#" class="nav-link">Thông tin</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a class="nav-link" href="LoginController.php?logout" onclick="return confirm('Bạn có chắc muốn đăng xuất ?')">Đăng xuất</a>
-                                            </li>
-                                            <li class="dropdown-item">
-                                                <a class="nav-link" href="#">Something</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            <?php else: ?>
-                                <div>
-                                    <a href="index.php?act=login" class="btn btn-outline-success">Đăng nhập</a>
-                                    <a href="?act=register" class="btn btn-outline-success">Đăng ký</a>
-                                </div>
-                            <?php endif ?>
-
-                             <!-- alet toast -->
-                            
-                       </div>
-                        
+    <nav class="navbar navbar-expand-lg bg-warning">
+      <div class="container-fluid">
+        <a class="navbar-brand px-3" href="?act=home">
+            <img src="../view/assets/img/customize/just-shop-logo.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 fs-5 mb-lg-0">
+            <li class="nav-item mx-3">
+              <a class="nav-link" aria-current="page" href="?act=home">Trang chủ</a>
+            </li>
+            <li class="nav-item mx-3">
+              <a class="nav-link" href="#">Liên hệ</a>
+            </li>
+            <li class="nav-item dropdown mx-3">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Danh mục
+                </a>
+                <ul class="dropdown-menu">
+                    <?php foreach($loai as $key=>$item):?>
+                        <li class="fs-6">
+                            <a class="dropdown-item" href="?act=loaihh&iddm=<?=$item['ma_loai']?>"><?=$item['ten_loai']?></a>
+                        </li>
+                    <?php endforeach?>
+                </ul>
+            </li>
+    
+          </ul>
+          <div class="d-flex mx-5">
+    <?php if(isset($_SESSION['email']) && (isset($_SESSION['password'])) && (isset($_SESSION['img']))):?>
+            <ul class="navbar-nav me-5 px-5">
+                <li class="nav-item">
+                    <div class="my-2">
+                    <form action="" method="post" class="input-group">
+                        <button name="" type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
+                        <input type="text" name="" id="" class="form-control" placeholder="Tìm kiếm">
+                    </form>
                     </div>
-                </nav>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?act=cart" >
+                        <div class="btn btn-outline-success">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="numberCart"></span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php if($_SESSION['img'] == ""):?>
+                            <img src="../view/assets/img/customize/avatar-macdinh.webp" alt="" class="img_user">
+                        <?php else:?>
+                            <img src="<?= $_SESSION['img']?>" alt="" class="img_user">
+                        <?php endif?>
+                       
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="?act=chitietkh">Thông tin 
+                                <span class="ms-5 text-success"><i class="fas fa-info"></i></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Cài đặt
+                                <span class="ms-5"></span>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" onclick="return confirm('Bạn có muốn đăng xuất ?')" href="LoginController.php?logout">Đăng xuất
+                                <span class="ms-5 text-danger"><i class="fas fa-sign-out-alt"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        <?php else:?>
+            <!-- login success -->
+            <ul class="navbar-nav me-5 px-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="?act=login" >
+                        <div class="btn btn-outline-success">
+                            <span>Đăng Nhập</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="?act=register" >
+                        <div class="btn btn-outline-success">
+                            <span>Đăng ký</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <!--end login success -->
+            <?php endif ?>
+          </div>
+        </div>
+      </div>
+    </nav>
+</div>
+
+
+
+
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav px-5 nav navbar-brand">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="?act=home">Trang chủ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Liên hệ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Phản hồi</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Danh mục sản phẩm
+                            </a>
+                            <ul class="dropdown-menu">
+                                <?php foreach($loai as $key=>$item):?>
+                                    <li>
+                                        <a class="dropdown-item" href="?act=loaihh&iddm=<?=$item['ma_loai']?>"><?=$item['ten_loai']?></a>
+                                    </li>
+                                <?php endforeach?>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                    
             </div>

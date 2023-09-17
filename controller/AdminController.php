@@ -182,6 +182,7 @@ if(isset($_GET['ad'])){
         break;
         // danh mục hàng hóa
         case 'addloaihang':
+
             include '../view/admin/loai-hang/addloaihang.php';
         break;
         case 'dsloaihang':

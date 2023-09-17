@@ -25,16 +25,23 @@
         </thead>
         <tbody>
             <?php foreach($lh as $key=>$item):?>
+                <?php 
+                $idloai = $item['ma_loai'];
+                $sl = demSLTheoLoai($idloai);
+                $topgia = getGiaSanPhamLonNhatTheoLoai($idloai);
+                $btgia  =getGiaSanPhamNhoNhatTheoLoai($idloai);
+                $giatb = ($topgia['don_gia'] + $btgia['don_gia']) / 2;
+                    ?>
             <tr>
                 <td>
                     <input type="checkbox" name="" id="" class="form-check-input">
                 </td>
                 <td><?=$item['ma_loai']?></td>
-                <td>Bánh ngọt cachi</td>
-                <td>120.000</td>
-                <td>100.000</td>
-                <td>21</td>
-                <td>15</td>
+                <td><?=$item['ten_loai']?></td>
+                <td><?=$sl['sl']?></td>
+                <td><?=$topgia['don_gia']?></td>
+                <td><?=$btgia['don_gia']?></td>
+                <td><?=$giatb?></td>
                 <td>
                     <a href="#" class="btn btn-warning"><i class="fas fa-trash-alt"></i></a>
                     <a href="#" class="btn btn-secondary"><i class="far fa-edit"></i></a>

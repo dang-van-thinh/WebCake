@@ -20,7 +20,7 @@
         <div class="col-md-3 col-sm-4">
             <div class="card my-4 product-item">
                 <div class="img_hover p-1">
-                    <a href="#">
+                    <a href="?act=chitiet&id=<?=$item['ma_hh']?>&idloai=<?= $item['ma_loai']?>">
                         <img src="<?=$item['anh']?>" alt="" class="img_product">
                     </a>
                     <input type="hidden" name="" id="idHangHoa" value="<?=$item['ma_hh']?>">

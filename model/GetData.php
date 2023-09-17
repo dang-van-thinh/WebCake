@@ -27,6 +27,31 @@ function getAllLoaiHang(){
     $stmt->execute();
     return $stmt->fetchAll();
 }
+
+function demSLTheoLoai($idloai){
+    $conn = connect();
+    $query = "SELECT COUNT(*) as sl FROM hang_hoa WHERE ma_loai = $idloai";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    return $stmt->fetch();
+}
+
+function getGiaSanPhamLonNhatTheoLoai($idloai){
+    $conn = connect();
+    $query = "SELECT * FROM hang_hoa WHERE ma_loai = $idloai order by don_gia desc limit 1";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    return $stmt->fetch();
+}
+
+function getGiaSanPhamNhoNhatTheoLoai($idloai){
+    $conn = connect();
+    $query = "SELECT * FROM hang_hoa WHERE ma_loai = $idloai order by don_gia asc limit 1";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    return $stmt->fetch();
+}
+
 function getOneLoaiHang($idlh){
     $conn = connect();
     $query = "SELECT * FROM loai WHERE ma_loai='$idlh'";
@@ -63,6 +88,16 @@ function getBanhTTTop10(){
     $stmt->execute();
     return $stmt->fetchAll();
 }
+
+function getBanhTop4($idloai){
+    $conn = connect();
+    $query = "SELECT * FROM hang_hoa WHERE ma_loai=$idloai LIMIT 4";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+
 function getHH_Loai($iddm){
     $conn = connect();
     $query = "SELECT * FROM hang_hoa WHERE ma_loai=$iddm";
