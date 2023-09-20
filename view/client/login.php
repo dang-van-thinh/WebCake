@@ -79,6 +79,18 @@
           <!-- Register -->
           <div class="card">
             <div class="card-body">
+            <?php if(isset($_COOKIE['fail'])):?>
+              <!-- toast fail -->
+              <div class="toast align-items-center fade show text-danger" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                  <div class="toast-body">
+                    <?= $_COOKIE['fail']?>
+                  </div>
+                  <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+              </div>
+              <!--end toast fail -->
+              <?php endif ?>
               <p class="mb-4">Vui lòng nhập Email và mật khẩu để đăng nhập</p>
               <form id="formAuthentication" class="mb-3" action="../../controller/LoginController.php" method="POST">
                 <div class="mb-3">

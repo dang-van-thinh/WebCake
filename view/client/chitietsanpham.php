@@ -13,7 +13,7 @@
                         <hr>
                     </div>
                     <div>
-                        <p>Giá: <span class="text-danger fw-bold"><?= $onehh['don_gia']?></span>đ</p>
+                        <p>Giá: <span class="text-danger fw-bold"><?= number_format( $onehh['don_gia']) ?></span>đ</p>
                         <div class="">Số lượng:
                             <div class="d-flex-inline btn-group">
                                 <button class="btn btn-outline-dark">+</button>
@@ -90,7 +90,7 @@
                                 <div class="">
                                     <h5 class="card-title my-2 text-uppercase"><?=$item['ten_hh']?></h5>
                                     <div>
-                                        <span class="text-danger fs-4 fw-bold" id="price"><?=$item['don_gia']?></span>
+                                        <span class="text-danger fs-4 fw-bold" id="price"><?= number_format($item['don_gia']) ?></span>
                                         <span>&#8363</span>
                                     </div>
                                     

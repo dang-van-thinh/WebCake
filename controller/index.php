@@ -2,6 +2,7 @@
 session_start();
 ob_start();
 require_once '../model/GetData.php';
+require_once '../model/Update.php';
 require_once '../model/ConnectDB.php';
 ?>
 <?php
@@ -45,15 +46,21 @@ if(isset($_GET['act'])){
             include '../view/client/hanghoa_loai.php';
         break;
         case 'chitiet':
+            
             if(isset($_GET['id']) && (isset($_GET['idloai']))){ 
                 $idhh = $_GET['id'];
                 $idloai = $_GET['idloai'];
+                updateLuotXemSP($idhh);
             }
             $top4 = getBanhTop4($idloai);
             $onehh = getOneHangHoa($idhh);
             include '../view/client/chitietsanpham.php';
         break;
         case 'chitietkh':
+            if(isset($_GET['idkh'])){ 
+                $idkh = $_GET['idkh'];
+                $kh= getOneKH($idkh);
+            }
             include '../view/client/chitietkhachhang.php';
         break;
         case 'login':

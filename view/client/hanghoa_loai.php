@@ -17,7 +17,7 @@
     <!-- hàng hóa -->
     <div class="row">
         <?php foreach($hh_loai as $key=>$item):?>
-        <div class="col-md-3 col-sm-4">
+        <div class="col-lg-3 col-md-4 col-sm-6 ">
             <div class="card my-4 product-item">
                 <div class="img_hover p-1">
                     <a href="?act=chitiet&id=<?=$item['ma_hh']?>&idloai=<?= $item['ma_loai']?>">
@@ -29,7 +29,7 @@
                     <div class="">
                         <h5 class="card-title my-2 text-uppercase"><?=$item['ten_hh']?></h5>
                         <div>
-                            <span class="text-danger fs-4 fw-bold" id="price"><?=$item['don_gia']?></span>
+                            <span class="text-danger fs-4 fw-bold" id="price"><?= number_format($item['don_gia'],0,',','.') ?></span>
                             <span>&#8363</span>
                         </div>
                         

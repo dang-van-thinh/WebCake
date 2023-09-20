@@ -31,24 +31,23 @@
     
           </ul>
           <div class="d-flex mx-5">
-    <?php if(isset($_SESSION['email']) && (isset($_SESSION['password'])) && (isset($_SESSION['img']))):?>
             <ul class="navbar-nav me-5 px-5">
                 <li class="nav-item">
                     <div class="my-2">
-                    <form action="" method="post" class="input-group">
-                        <button name="" type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
-                        <input type="text" name="" id="" class="form-control" placeholder="Tìm kiếm">
-                    </form>
+                        <form action="" method="post" class="input-group">
+                            <button name="" type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
+                            <input type="text" name="" id="" class="form-control" placeholder="Tìm kiếm">
+                        </form>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="?act=cart" >
                         <div class="btn btn-outline-success">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span id="numberCart"></span>
+                            <i class="fas fa-shopping-cart"><span id="numberCart" class=""></span></i>
                         </div>
                     </a>
                 </li>
+                <?php if(isset($_SESSION['email']) && (isset($_SESSION['password'])) && (isset($_SESSION['img']))):?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <?php if($_SESSION['img'] == ""):?>
@@ -56,11 +55,10 @@
                         <?php else:?>
                             <img src="<?= $_SESSION['img']?>" alt="" class="img_user">
                         <?php endif?>
-                       
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="?act=chitietkh">Thông tin 
+                            <a class="dropdown-item" href="?act=chitietkh&idkh=<?= $_SESSION['idkh']?>">Hồ sơ 
                                 <span class="ms-5 text-success"><i class="fas fa-info"></i></span>
                             </a>
                         </li>
@@ -77,27 +75,27 @@
                         </li>
                     </ul>
                 </li>
-            </ul>
-        <?php else:?>
-            <!-- login success -->
-            <ul class="navbar-nav me-5 px-5">
+            <?php else:?>
+                <!-- login success -->
                 <li class="nav-item">
-                    <a class="nav-link" href="?act=login" >
-                        <div class="btn btn-outline-success">
-                            <span>Đăng Nhập</span>
-                        </div>
-                    </a>
+                    <div class="my-2">
+                        <ul class="navbar-nav">
+                            <li class="nav-item mx-3">
+                                <a class="btn btn-outline-success" href="?act=login" >
+                                    Đăng Nhập
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="btn btn-outline-success" href="?act=register" >
+                                    Đăng ký
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="?act=register" >
-                        <div class="btn btn-outline-success">
-                            <span>Đăng ký</span>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-            <!--end login success -->
+                <!--end login success -->
             <?php endif ?>
+            </ul> 
           </div>
         </div>
       </div>

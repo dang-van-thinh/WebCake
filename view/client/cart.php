@@ -11,7 +11,7 @@
                     <th>Ảnh</th>
                     <th>Số lượng</th>
                     <th>Giá</th>
-                    <th></th>
+                    <th>Chức năng</th>
                 </tr>
             </thead>
             <tbody id="show">
@@ -19,7 +19,9 @@
             </tbody>
             <tr>
                 <td colspan="4" class="fw-bold">Tổng tiền:</td>
-                <td ><span class="totalPrices"></span></td>
+                <td colspan="2">
+                    <span class="totalPrices"></span>
+                </td>
             </tr>
         </table>
         <div class="my-5">

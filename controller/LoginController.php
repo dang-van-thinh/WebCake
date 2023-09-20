@@ -12,6 +12,7 @@ include '../model/LoginModel.php';
             $_SESSION['img'] = $kh['anh'];
             $_SESSION['hoten'] =$kh['hoten'];
             $_SESSION['role'] = $kh['vai_tro'];
+            $_SESSION['idkh'] = $kh['ma_kh'];
             if($_SESSION['role']==1){ 
                 header('location: AdminController.php?ad=home');
             } else{
@@ -25,7 +26,7 @@ include '../model/LoginModel.php';
     }
 // logout tài khoản
     if(isset($_GET['logout'])){
-        unset($_SESSION['email'],$_SESSION['password'],$_SESSION['role'],$_SESSION['img'],$_SESSION['hoten']);
+        unset($_SESSION['email'],$_SESSION['password'],$_SESSION['role'],$_SESSION['img'],$_SESSION['hoten'],$_SESSION['idkh']);
         header('location: index.php');
     }
 // register 

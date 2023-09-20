@@ -39,9 +39,9 @@
                 <td><?=$item['ma_loai']?></td>
                 <td><?=$item['ten_loai']?></td>
                 <td><?=$sl['sl']?></td>
-                <td><?=$topgia['don_gia']?></td>
-                <td><?=$btgia['don_gia']?></td>
-                <td><?=$giatb?></td>
+                <td><?=number_format($topgia['don_gia'])?></td>
+                <td><?=number_format($btgia['don_gia'])?></td>
+                <td><?=number_format($giatb)?></td>
                 <td>
                     <a href="#" class="btn btn-warning"><i class="fas fa-trash-alt"></i></a>
                     <a href="#" class="btn btn-secondary"><i class="far fa-edit"></i></a>

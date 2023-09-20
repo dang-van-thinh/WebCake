@@ -6,6 +6,8 @@ if(isset($_SESSION['email']) && isset($_SESSION['password']) && ($_SESSION['role
     require_once '../model/Delete.php';
     require_once '../model/GetData.php';
     require_once '../model/Update.php';
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +46,11 @@ if(isset($_GET['ad'])){
         break;
         //hàng hóa
         case 'dshh':
+            if(isset($_POST['key'])){
+                $data = $_POST['key'];
+                echo $data;
+                header('location: ../model/jquery.php');
+            }
             $hh = getAllHangHoa();
             if(isset($_GET['idhh'])){
                 $idhh = $_GET['idhh'];

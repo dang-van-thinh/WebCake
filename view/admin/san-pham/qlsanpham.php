@@ -19,7 +19,7 @@
         <thead>
             <tr>
                 <th>
-                    <input type="checkbox" name="allItem" id="" class="form-check-input">
+                    <input type="checkbox" name="allItem" id="checkedAll" class="form-check-input">
                 </th>
                 <th>Mã HH</th>
                 <th>Tên hàng hóa</th>
@@ -39,12 +39,12 @@
             <?php foreach($hh as $key=>$item):?>
             <tr>
                 <td>
-                    <input type="checkbox" name="" id="" class="form-check-input">
+                    <input type="checkbox" name="item"  class="form-check-input checked">
                 </td>
-                <td><?= $item['ma_hh'] ?></td>
-                <td><?= $item['ten_hh'] ?></td>
-                <td><?= $item['don_gia'] ?></td>
-                <td><?= $item['giam_gia'] ?></td>
+                <td id="idhh"><?= $item['ma_hh'] ?></td>
+                <td class="text-uppercase"><?= $item['ten_hh'] ?></td>
+                <td><?= number_format($item['don_gia']) ?></td>
+                <td><?= number_format($item['giam_gia']) ?></td>
                 <td>
                     <img src="<?= $item['anh'] ?>" alt="<?= $item['anh'] ?>" class="img_kh">
                 </td>
@@ -63,9 +63,9 @@
     </table>
     <div class="mt-3">
         <div class="btn-group">
-            <a href="#" class="btn btn-dark">Chọn tất cả</a>
-            <a href="#" class="btn btn-info">Bỏ chọn tất cả</a>
-            <a href="#" class="btn btn-success">Xóa các mục đã chọn</a>
+            <a href="#" id="selectAll" class="btn btn-dark">Chọn tất cả</a>
+            <a href="" id="unchecked" class="btn btn-info">Bỏ chọn tất cả</a>
+            <a href="?ad=dshh" id="delsp" class="btn btn-success">Xóa các mục đã chọn</a>
         </div>
     </div>
     </div>
