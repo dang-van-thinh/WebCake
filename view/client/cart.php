@@ -43,25 +43,26 @@
                         <div>
                             <div class="mt-3">
                                 <label for="" class="form-label">Tên khách hàng:</label>
-                                <input type="text" name="" id="" value="Nguyễn Văn A" class="form-control">
+                                <input type="text" name="" id="" value="<?= isset($kh)?$kh['hoten']:''?>" placeholder="Họ tên khách hàng" class="form-control">
                             </div>
                             <div class="mt-3">
                                 <label for="" class="form-label"><span class="text-danger">(*)</span>Địa chỉ</label>
-                                <input type="text" class="form-control fs-6" placeholder="Xóm,số nhà /Thôn,dường/Xã,phường/Huyện,quận/Thành phố,tỉnh">
+                                <input type="text" value="<?= isset($kh)?$kh['dia_chi']:''?>" class="form-control fs-6" placeholder="Xóm,số nhà /Thôn,dường/Xã,phường/Huyện,quận/Thành phố,tỉnh">
                             </div>
                             <div class="mt-3">
                                 <label for="" class="form-label"><span class="text-danger">(*)</span>Số điện thoại</label>
-                                <input type="text" class="form-control fs-6" placeholder="Số điện thoại ví dụ :0932******">
+                                <input type="text" value="<?= isset($kh)?$kh['phone']:''?>" class="form-control fs-6" placeholder="Số điện thoại ví dụ :0932******">
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="col-md-4">
                     <div>
-                        <p class="fs-3 fw-bold">Tổng tiền <span class="fs-4 fw-normal totalPrices"></span></p>
+                        <p class="fs-3 fw-bold">Tổng tiền: <span class="fs-4 fw-normal totalPrices"></span></p>
                     </div>
-                    <div>
-                        <p>Vận chuyểns</p>
+                    <div class="btn-group my-3">
+                        <h4 class="">Vận chuyển: <span class="alert alert-success fw-normal text-success">Miễn phí</span></h4>
+                        
                     </div>
                     <div>
                         <button class="btn btn-success">Thanh toán</button>

@@ -59,3 +59,7 @@
     position: relative;
     z-index: 2;
 }
+.border_custom{
+    border: 1px solid rgb(198, 195, 195);
+    width: 100%;
+}

@@ -1,3 +1,4 @@
+
 <div class="margin_top">
     <div class="container ">
         <div class="row ">
@@ -32,10 +33,20 @@
         <!-- comment và bình luận -->
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item " role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Thông tin sản phẩm</button>
+                <button class="nav-link active" id="home-tab" 
+                data-bs-toggle="tab" 
+                data-bs-target="#home-tab-pane" 
+                type="button" role="tab" 
+                aria-controls="home-tab-pane" 
+                aria-selected="true">Thông tin sản phẩm</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Bình luận</button>
+                <button class="nav-link" id="profile-tab" 
+                data-bs-toggle="tab" 
+                data-bs-target="#profile-tab-pane" 
+                type="button" role="tab" 
+                aria-controls="profile-tab-pane" 
+                aria-selected="false">Bình luận</button>
             </li>
         </ul>
         <div class="tab-content p-4 border mb-4" id="myTabContent">
@@ -49,22 +60,53 @@
             <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <p>0 Bình luận</p>
+                        <p><?=$tongbl['tongbl'] ?> Bình luận</p>
                     </div>
                     <div>
                         <p>Sắp xếp</p>
                     </div>
                 </div>
                 <hr>
-                <div class="btn-group">
-                    <div class=" p-2">
-                        <img src="../view/assets/img/customize/just-shop-logo.png" alt="" class="img_user">
-                    </div>
-                    <div class="">
-                        <form action="" method="post">
-                            <textarea name="" id="" cols="120" rows="4" class="form-control" placeholder="Bình luận "></textarea>
-                            <input type="submit" value="Đăng" class="btn btn-outline-info mt-2">
-                        </form>
+                <div id="comment">
+                    <!-- comment của người dùng -->
+                    <?php foreach($bl as $item):?>
+                        <div class="container">
+                            <div class="btn-group">
+                                <div class="p-2">
+                                    <img src="<?= $item['anh'] ?>" alt="" class="img_user">
+                                    <p class="text-center opacity-75"><?= $item['hoten'] ?></p>
+                                </div>
+                                <div class="content">
+                                    <textarea name="" id=""  
+                                    cols="130  " rows="2" readonly 
+                                    class="form-control"><?= $item['noi_dung'] ?></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                    <div class="btn-group">
+                        <div class=" p-2">
+                            <?php if(isset($_SESSION['email'])):?>
+                                <img src="<?=getOneKH($_SESSION['idkh'])['anh']?>"
+                                 alt="" class="img_user">
+                                <div class="comment">
+                                    <form action="?act=comment" method="post" id="formComment">
+                                        <input type="hidden" name="id" value="<?=$_GET['id']?>">
+                                        <input type="hidden" name="idloai" value="<?=$_GET['idloai']?>">
+                                        <input type="hidden" name="idhh" value="<?=$onehh['ma_hh']?>">
+                                        <textarea name="noidung" id="" cols="120" rows="4" class="form-control" placeholder="Bình luận "></textarea>
+                                        <input type="submit" name="submitbl" value="Đăng" class="btn btn-outline-info mt-2">
+                                    </form>
+                                </div>
+                            <?php else:?>
+                               <div class="text-center">
+                                    <p class="alert alert-danger">
+                                       ! Thực hiện đăng nhập để bình luận
+                                    </p>
+                               </div>
+                            <?php endif?>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -78,7 +120,7 @@
             </div>
             <div class="row">
                 <?php foreach($top4 as $key=>$item):?>
-                    <div class="col-md-3 col-sm-4">
+                    <div class="col-lg-3 col-md-4 col-sm-6">
                         <div class="card my-4 product-item">
                             <div class="img_hover p-1">
                                 <a href="?act=chitiet&id=<?=$item['ma_hh']?>&idloai=<?= $item['ma_loai']?>">
@@ -107,3 +149,4 @@
         </div>
     </div>
 </div>
+

@@ -47,30 +47,38 @@
                         </div>
                     </a>
                 </li>
-                <?php if(isset($_SESSION['email']) && (isset($_SESSION['password'])) && (isset($_SESSION['img']))):?>
+                <?php if(isset($_SESSION['email']) && (isset($_SESSION['password']))):?>
+                    <?php $kh = getOneKH($_SESSION['idkh'])?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <?php if($_SESSION['img'] == ""):?>
-                            <img src="../view/assets/img/customize/avatar-macdinh.webp" alt="" class="img_user">
-                        <?php else:?>
-                            <img src="<?= $_SESSION['img']?>" alt="" class="img_user">
-                        <?php endif?>
+                    <a class="nav-link dropdown-toggle" href="#" 
+                    role="button" data-bs-toggle="dropdown" 
+                    aria-expanded="false">
+                            <img src="<?= $kh['anh']?>" alt="" class="img_user">
                     </a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a class="dropdown-item" href="?act=chitietkh&idkh=<?= $_SESSION['idkh']?>">Hồ sơ 
-                                <span class="ms-5 text-success"><i class="fas fa-info"></i></span>
+                        <li class="dropdown-item">
+                            <a class="nav-link d-flex text-success " href="?act=chitietkh&idkh=<?= $_SESSION['idkh']?>">
+                                <span class="me-auto p2">Hồ sơ</span>
+                                <i class="fas fa-info p2"></i>
                             </a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="#">Cài đặt
-                                <span class="ms-5"></span>
+                        <li class="dropdown-item">
+                            <a class="nav-link d-flex text-warning" href="#">
+                                <span class=" me-auto p2">Cài đặt</span>
+                                <i class="fas fa-cog p2"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a class="nav-link d-flex text-info" href="#">
+                                <span class="me-auto p2">Đơn hàng</span>
+                                <i class="fas fa-truck p2"></i>
                             </a>
                         </li>
                         <li><hr class="dropdown-divider"></li>
-                        <li>
-                            <a class="dropdown-item" onclick="return confirm('Bạn có muốn đăng xuất ?')" href="LoginController.php?logout">Đăng xuất
-                                <span class="ms-5 text-danger"><i class="fas fa-sign-out-alt"></i></span>
+                        <li class="dropdown-item">
+                            <a class="nav-link d-flex text-danger" onclick="return confirm('Bạn có muốn đăng xuất ?')" href="LoginController.php?logout">
+                                <span class="me-auto p2">Đăng xuất</span>
+                                <i class="fas fa-sign-out-alt p2"></i>
                             </a>
                         </li>
                     </ul>

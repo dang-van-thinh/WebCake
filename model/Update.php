@@ -1,7 +1,7 @@
 <?php
-function updateKH($makh,$hoten,$matkhau,$email,$anh,$kichhoat){
+function updateKH($makh,$hoten,$matkhau,$email,$anh,$dia_chi,$phone){
     $conn =connect();
-    $query = "UPDATE khach_hang SET hoten='$hoten',matkhau='$matkhau',email='$email',anh='$anh',kich_hoat='$kichhoat' WHERE ma_kh=$makh";
+    $query = "UPDATE khach_hang SET hoten='$hoten',matkhau='$matkhau',email='$email',anh='$anh',dia_chi='$dia_chi',phone='$phone' WHERE ma_kh='$makh'";
     $conn->prepare($query)->execute();
 }
 

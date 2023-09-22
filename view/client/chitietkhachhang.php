@@ -1,19 +1,17 @@
 <div class="margin_top">
     <div class="container my-3">
-        <form action="" method="post" enctype="multipart/form-data" class="border p-4">
+        <form action="?act=chitietkh" method="post" enctype="multipart/form-data" class="border p-4">
             <div class="my-3">
                 <h3 class="">Thông tin khách hàng</h3>
+                <input type="hidden" name="idkh" value="<?=$kh['ma_kh']?>">
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="form_img">
-                        <?php if($kh['anh'] == ""):?>
-                        <img src="../view/assets/img/customize/avatar-macdinh.webp" alt="" class="" width="100%">
-                        <?php else: ?>
                         <img src="<?=$kh['anh']?>" alt="" class="" width="100%">
-                        <?php endif ?>
+                        <input type="text" name="anh" hidden id="" value="<?=$kh['anh']?>">
                     </div>
-                    <input type="file" name="" id="" class="form-control my-2" value="Brower">
+                    <input type="file" name="anh2" id="" class="form-control my-2" value="Brower">
                 </div>
                 <div class="col-md-4">
                     <div class="mt-3">
@@ -22,17 +20,31 @@
                     </div>
                     <div class="mt-3">
                         <label for="" class="form-label">Mật khẩu</label>
-                        <input type="password" name="" id="" value="" class="form-control">
+                        <input type="password" name="password" readonly id="" value="<?=$kh['matkhau']?>" class="form-control">
                     </div>
                     <div class="mt-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" name="email" id="email" value="<?=$kh['email']?>" class="form-control">
                     </div>
-                </div>
-                <div class="col-md-4">
                     
                 </div>
+                <div class="col-md-4">
+                    <div class="mt-3">
+                        <label for="" class="form-label"><span class="text-danger">(*)</span>Địa chỉ</label>
+                        <input type="text" name="diachi" value="<?=$kh['dia_chi']?>" class="form-control fs-6" placeholder="Xóm,số nhà /Thôn,dường/Xã,phường/Huyện,quận/Thành phố,tỉnh">
+                    </div>
+                    <div class="mt-3">
+                        <label for="" class="form-label"><span class="text-danger">(*)</span>Số điện thoại</label>
+                        <input type="text" name="phone" value="<?=$kh['phone']?>" class="form-control fs-6" placeholder="Số điện thoại ví dụ :0932******">
+                    </div>
+                    <div class="mt-3">
+                        <button type="submit" name="updatekh" class="btn btn-success">
+                            <i class="fas fa-save"></i> Lưu
+                        </button>
+                    </div>
+                </div>
              </div>
+             
         </form>
         <!-- thông tin đơn hàng mà khách hàng đã đặt -->
         <div class="row">

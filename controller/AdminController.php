@@ -6,8 +6,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['password']) && ($_SESSION['role
     require_once '../model/Delete.php';
     require_once '../model/GetData.php';
     require_once '../model/Update.php';
-    
-
+    require_once '../model/ConnectDB.php';
 ?>
 
 <!DOCTYPE html>
@@ -130,7 +129,7 @@ if(isset($_GET['ad'])){
                 $anh = $folder . basename($_FILES['anhkh']['name']);
                 $tmp = $_FILES['anhkh']['tmp_name'];
                 move_uploaded_file($tmp,$anh);
-                if(setKhachHang($tenkh,$matkhau,$email,$anh,$kichhoat,$vaitro)){
+                if(setKhachHang($tenkh,$matkhau,$email,$anh,$kichhoat,$vaitro,$diachi,$phone)){
                     setcookie('success','Thêm dữ liệu thành công !',time()+3,'/');
                     header('location: ?ad=addkh');
 
@@ -174,7 +173,7 @@ if(isset($_GET['ad'])){
                 }else{
                     $anh = $_POST['anhkh'];
                 }
-                updateKH($makh,$hoten,$matkhau,$email,$anh,$kichhoat);
+                updateKH($makh,$hoten,$matkhau,$email,$anh,$kichhoat,$diachi,$phone);
                 setcookie('success','Thay đổi dữ liệu thành công !',time()+3,'/');  
                 header('location: ?ad=dskh');
             }
@@ -182,9 +181,20 @@ if(isset($_GET['ad'])){
         break;
         //bình luận sản phẩm
         case 'bl':
+            $bl= getAllBinhLuan();
             include '../view/admin/binh-luan/tonghopbl.php';
         break;
         case 'ctbl':
+            if(isset($_GET['delbl'])){
+                $idbl = $_GET['delbl'];
+                delBl($idbl);
+                header('location: ?ad=bl');
+            }
+            if(isset($_GET['idhh'])){
+                $idhh= $_GET['idhh'];
+                $bl = getBLHangHoa($idhh);
+                $ten_hh = getOneHangHoa($idhh);
+            }
             include '../view/admin/binh-luan/chitietbl.php';
         break;
         // danh mục hàng hóa

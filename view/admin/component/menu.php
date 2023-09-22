@@ -8,46 +8,49 @@
 
           <div class="menu-inner-shadow"></div>
 
-          <ul class="menu-inner py-1">
+          <ul class="menu-inner py-1 fw-bold" id="menu_admin">
             <!-- Layouts -->
-            <li class="menu-item active">
-              <a href="" class="menu-link menu-toggle">
+            <li class="menu-item">
+              <a href="" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Quản Lý</div>
+                <div>Quản Lý</div>
               </a>
-
-              <ul class="menu-sub">
-                <li class="menu-item">
+              <li class="menu-item">
                   <a href="?ad=addsanpham" class="menu-link">
+                    <i class="menu-icon fas fa-hamburger"></i>
                     <div data-i18n="Without menu">Quản lý sản phẩm</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="?ad=addkh" class="menu-link">
+                    <i class="menu-icon fas fa-users"></i>
                     <div data-i18n="Without navbar">Quản lý tài khoản</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="?ad=bl" class="menu-link">
+                    <i class="menu-icon fas fa-comment"></i>
                     <div data-i18n="Container">Quản lý bình luận</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="?ad=dsloaihang" class="menu-link">
+                    <i class="menu-icon fas fa-clipboard-list"></i>
                     <div data-i18n="Fluid">Quản lý danh mục</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="?ad=home" class="menu-link">
+                    <i class="menu-icon fas fa-chart-line"></i>
                     <div data-i18n="Fluid">Thống kế hóa đơn</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="?ad=thongke" class="menu-link">
+                    <i class="menu-icon fas fa-chart-pie"></i>
                     <div data-i18n="Blank">Thống kế biểu đồ </div>
                   </a>
                 </li>
-              </ul>
             </li>
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Pages</span>

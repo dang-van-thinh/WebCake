@@ -75,7 +75,7 @@
           <!-- Register -->
           <div class="card">
             <div class="card-body">
-              <p class="mb-4">Hãy tạo tài khoản đặt hàng ngay thôi</p>
+              <p class="mb-4 alert alert-success">Hãy tạo tài khoản đặt hàng ngay thôi</p>
               <form id="formAuthentication" class="mb-3" action="../../controller/LoginController.php" method="POST">
               <div class="mb-3">
                   <label for="hoten" class="form-label">Họ và tên</label>

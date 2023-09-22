@@ -15,16 +15,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><input type="checkbox" name="" id="" class="form-check-input"></td>
-                <td>Bánh ngọt cachi</td>
-                <td>120.000</td>
-                <td>100.000</td>
-                <td>21</td>
-                <td>
-                    <a href="?ad=ctbl" class="btn btn-warning"><i class="fas fa-info-circle"></i></a>
-                </td>
-            </tr>
+            <?php foreach($bl as $key=>$item):?>
+                <tr>
+                    <td><input type="checkbox" name="" id="" class="form-check-input"></td>
+                    <td><?=  getOneHangHoa($item['ma_hh'])['ten_hh'] ?></td>
+                    <td><?= getOneBinhLuan($item['ma_hh'])['tongbl']?></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <a href="?ad=ctbl&idhh=<?=$item['ma_hh']?>" class="btn btn-warning"><i class="fas fa-info-circle"></i></a>
+                    </td>
+                </tr>
+            <?php endforeach ?>
         </tbody>
     </table>
     <div class="mt-3">

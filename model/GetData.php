@@ -1,5 +1,4 @@
 <?php
-require_once 'ConnectDB.php';
 // khách hàng
 function getAllKH(){
     $conn = connect();
@@ -118,18 +117,28 @@ function getOneHangHoa($idhh){
 // bình luận
 function getAllBinhLuan(){
     $conn = connect();
-    $query = "SELECT * FROM binh_luan";
+    $query = "SELECT * FROM binh_luan group by ma_hh";
     $stmt = $conn->prepare($query);
     $stmt->execute();
     return $stmt->fetchAll();
 }
-function getOneBinhLuan($id){
+function getOneBinhLuan($idhh){
     $conn = connect();
-    $query = "SELECT * FROM khach_hang WHERE ma_kh='$id'";
+    $query = "SELECT * , count(*) as tongbl FROM binh_luan WHERE ma_hh='$idhh'";
     $stmt = $conn->prepare($query);
     $stmt->execute();
    $kq= $stmt->fetch();
    return $kq;
+}
+
+function getBLHangHoa($idhh){
+    $conn = connect();
+    $query = "SELECT *, kh.hoten,kh.anh FROM binh_luan bl JOIN khach_hang kh
+    ON bl.ma_kh = kh.ma_kh
+    WHERE ma_hh=$idhh";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    return $stmt->fetchAll();
 }
 //end bình luận
 

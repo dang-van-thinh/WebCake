@@ -1,9 +1,8 @@
 <?php
-include 'ConnectDB.php';
 
-function setKhachHang($hoten,$matkhau,$email,$anh,$kichhoat,$vaitro){
+function setKhachHang($hoten,$matkhau,$email,$anh,$kichhoat,$vaitro,$dia_chi,$phone){
     $conn = connect();
-    $query = "INSERT INTO khach_hang(hoten,matkhau,email,anh,kich_hoat,vai_tro) VALUES('$hoten','$matkhau','$email','$anh',$kichhoat,$vaitro)";
+    $query = "INSERT INTO khach_hang(hoten,matkhau,email,anh,kich_hoat,vai_tro) VALUES('$hoten','$matkhau','$email','$anh',$kichhoat,$vaitro,'$dia_chi','$phone')";
     $stmt =  $conn->prepare($query);
    $stmt->execute();
     return true;
@@ -11,12 +10,12 @@ function setKhachHang($hoten,$matkhau,$email,$anh,$kichhoat,$vaitro){
 function setLoaiHang($tenloai){
     $conn = connect();
     $query = "INSERT INTO loai(ten_loai) VALUES('$tenloai')";
-    $conn->query($query)->execute();
+    $conn->prepare($query)->execute();
 }
 function setBL($noidung,$makh,$mahh,$ngaybl){
     $conn = connect();
-    $query = "INSERT INTO binh_luan( noi_dung,ma_kh,ma_hh,ngay_bl) VALUES('$noidung','$makh','$mahh','$ngaybl')";
-    $conn->query($query)->execute();
+    $query = "INSERT INTO binh_luan(noi_dung,ma_kh,ma_hh,ngay_bl) VALUES('$noidung','$makh','$mahh','$ngaybl')";
+    $conn->prepare($query)->execute();
 }
 function setHangHoa($tenhh,$gia,$anh,$giamgia,$ngaynhap,$maloai,$dacbiet,$luotxem,$mota){
     $conn = connect();
@@ -24,4 +23,5 @@ function setHangHoa($tenhh,$gia,$anh,$giamgia,$ngaynhap,$maloai,$dacbiet,$luotxe
     $conn->prepare($query)->execute();
     return true;
 }
+
 ?>

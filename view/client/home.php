@@ -147,7 +147,7 @@
         <div class="text-uppercase text-center fw-bold">
             <h3>Tin tức</h3>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 ">
+        <div class="col-lg-4 col-md-6 col-sm-6 ">
             <div class="card my-4">
                 <div class="img_hover p-1">
                     <a href="#">
@@ -168,7 +168,7 @@
             </div>
         </div>
         <!-- end tin tức -->
-        <div class="col-lg-3 col-md-4 col-sm-6 ">
+        <div class="col-lg-4 col-md-6 col-sm-6 ">
             <div class="card my-4">
                 <div class="img_hover p-1">
                     <a href="#">
@@ -189,7 +189,7 @@
             </div>
         </div>
         <!-- end tin tức -->
-        <div class="col-lg-3 col-md-4 col-sm-6 ">
+        <div class="col-lg-4 col-md-6 col-sm-6 ">
             <div class="card my-4">
                 <div class="img_hover p-1">
                     <a href="#">
@@ -210,6 +210,7 @@
             </div>
         </div>
         <!-- end tin tức -->
+        
     </div>
     <!--end tin tức -->
     

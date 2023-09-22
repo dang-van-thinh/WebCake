@@ -10,3 +10,4 @@
     <link rel="stylesheet" href="../view/assets/css/customize.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="../view/assets/js/customize.js"></script>
+    <script src="../view/assets/js/admin-custom.js"></script>

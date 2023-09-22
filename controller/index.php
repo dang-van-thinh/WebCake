@@ -3,6 +3,7 @@ session_start();
 ob_start();
 require_once '../model/GetData.php';
 require_once '../model/Update.php';
+require_once '../model/InsertData.php';
 require_once '../model/ConnectDB.php';
 ?>
 <?php
@@ -35,6 +36,10 @@ if(isset($_GET['act'])){
             include '../view/client/home.php';
         break;
         case 'cart':
+            if(isset($_SESSION['idkh'])){
+                $idkh= $_SESSION['idkh'];
+                $kh = getOneKH($idkh);
+            }
             include '../view/client/cart.php';
         break;
         case 'loaihh':
@@ -46,20 +51,51 @@ if(isset($_GET['act'])){
             include '../view/client/hanghoa_loai.php';
         break;
         case 'chitiet':
-            
             if(isset($_GET['id']) && (isset($_GET['idloai']))){ 
                 $idhh = $_GET['id'];
                 $idloai = $_GET['idloai'];
                 updateLuotXemSP($idhh);
+                $onehh = getOneHangHoa($idhh);
+                $top4 = getBanhTop4($idloai);
             }
-            $top4 = getBanhTop4($idloai);
-            $onehh = getOneHangHoa($idhh);
+                $bl = getBLHangHoa($idhh);
+                $tongbl = getOneBinhLuan($idhh);                
             include '../view/client/chitietsanpham.php';
         break;
+        case 'comment':
+            if(isset($_POST['submitbl'])){      
+            $makh = $_SESSION['idkh'];
+            $idhh = $_POST['idhh'];
+            $noidung = $_POST['noidung'];
+            $ngaybl = date('Y-m-d');
+            setBL($noidung,$makh,$idhh,$ngaybl);
+            $id=$_POST['id'];
+            $idloai = $_POST['idloai'];
+            header("location: ?act=chitiet&id=$id&idloai=$idloai");
+            }
+        break;
         case 'chitietkh':
+            if(isset($_POST['updatekh'])){
+                $makh = $_POST['idkh'];
+                $hoten = $_POST['ten_kh'];
+                $email = $_POST['email'];
+                $matkhau = $_POST['password'];
+                $dia_chi = $_POST['diachi'];
+                $phone = $_POST['phone'];
+                if($_FILES['anh2']['name'] == ""){
+                    $anh = $_POST['anh'];
+                }else{
+                    $folder = "../upload/img/";
+                    $anh = $folder . basename($_FILES['anh2']['name']);
+                    $file_tmp = $_FILES['anh2']['tmp_name'];
+                    move_uploaded_file($file_tmp,$anh); 
+                }
+                updateKH($makh,$hoten,$matkhau,$email,$anh,$dia_chi,$phone);
+                header('location: '.$_SERVER['PHP_SELF']);
+            }
             if(isset($_GET['idkh'])){ 
                 $idkh = $_GET['idkh'];
-                $kh= getOneKH($idkh);
+                $kh = getOneKH($idkh);
             }
             include '../view/client/chitietkhachhang.php';
         break;

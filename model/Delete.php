@@ -11,4 +11,10 @@ function delHH($idhh){
     $stmt = $conn->prepare($query);
     $stmt->execute();
 }
+function delBl($idbl){
+    $conn = connect();
+    $query = "DELETE FROM binh_luan WHERE ma_bl=$idbl";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+}
 ?>
