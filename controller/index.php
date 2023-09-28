@@ -74,12 +74,25 @@ if(isset($_GET['act'])){
             header("location: ?act=chitiet&id=$id&idloai=$idloai");
             }
         break;
-        case 'chitietkh':
+        case 'updatekh':
+            $check = true;
             if(isset($_POST['updatekh'])){
+                if(isset($_POST['old_password'])){
+                    if($_POST['old_password'] == $_POST['password']){
+                        $matkhau = $_POST['new_password'];
+                        $checkUpdate = true;
+                    }else{
+                        $idkh = $_SESSION['idkh'];
+                        $checkUpdate = false;
+                        setcookie('error','Nhập mật khẩu không chính xác !',time()+5,'/');
+                        header('location: ?act=chitietkh&idkh='.$idkh.'');
+                    }
+                }else{
+                    $matkhau = $_POST['password'];
+                }
                 $makh = $_POST['idkh'];
                 $hoten = $_POST['ten_kh'];
                 $email = $_POST['email'];
-                $matkhau = $_POST['password'];
                 $dia_chi = $_POST['diachi'];
                 $phone = $_POST['phone'];
                 if($_FILES['anh2']['name'] == ""){
@@ -90,9 +103,14 @@ if(isset($_GET['act'])){
                     $file_tmp = $_FILES['anh2']['tmp_name'];
                     move_uploaded_file($file_tmp,$anh); 
                 }
-                updateKH($makh,$hoten,$matkhau,$email,$anh,$dia_chi,$phone);
-                header('location: '.$_SERVER['PHP_SELF']);
+                if($checkUpdate){
+                    updateKH($makh,$hoten,$matkhau,$email,$anh,$dia_chi,$phone);
+                    header('location: '.$_SERVER['PHP_SELF']);
+                }
             }
+        break;
+        case 'chitietkh':
+            
             if(isset($_GET['idkh'])){ 
                 $idkh = $_GET['idkh'];
                 $kh = getOneKH($idkh);
@@ -103,7 +121,7 @@ if(isset($_GET['act'])){
             header('location: ../view/client/login.php');
         break;
         case 'register':
-            header('location: ../view/client/register.php');
+            header('location: ../view/client/login.php?lg=register');
         break;
         default:
         $hhtt = getBanhTTTop10();

@@ -121,6 +121,11 @@ $(document).ready(function () {
     });
 
     // xóa
+    
 
+    $('#changeDropdown').click(function (e) { 
+        e.preventDefault();
+        $('#changePassword').toggle()
+    });
 
 });

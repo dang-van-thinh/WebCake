@@ -1,6 +1,6 @@
 <div class="margin_top">
     <div class="container my-3">
-        <form action="?act=chitietkh" method="post" enctype="multipart/form-data" class="border p-4">
+        <form action="?act=updatekh" method="post" enctype="multipart/form-data" class="border p-4">
             <div class="my-3">
                 <h3 class="">Thông tin khách hàng</h3>
                 <input type="hidden" name="idkh" value="<?=$kh['ma_kh']?>">
@@ -20,7 +20,29 @@
                     </div>
                     <div class="mt-3">
                         <label for="" class="form-label">Mật khẩu</label>
-                        <input type="password" name="password" readonly id="" value="<?=$kh['matkhau']?>" class="form-control">
+                        <input type="password" name="password" readonly id="" 
+                        value="<?=$kh['matkhau']?>" class="form-control">
+                    </div>
+                    <div class="mt-3 dropdown">
+                        <a href="#" id="changeDropdown" class="btn btn-warning mt-2 dropdown">Đổi mật khẩu</a>
+                        <div style="display:none" id="changePassword">
+                            <div class="mt-3">
+                                <label for="oldpass">Mật khẩu cũ</label>
+                                <input type="text" name="old_password" id="oldpass" 
+                                class="form-control" placeholder="Nhập mật khẩu cũ">
+                                <span class="badge text-danger">
+                                <?=
+                                (isset($_COOKIE['error'])?$_COOKIE['error']:'');
+                                ?>
+                                </span>
+                            </div>
+
+                            <div class="mt-3">
+                                <label for="newpass">Mật khẩu mới</label>
+                                <input type="text" name="new_password" id="newpass" 
+                                class="form-control" placeholder="Nhập mật khẩu mới">
+                            </div>
+                        </div>
                     </div>
                     <div class="mt-3">
                         <label for="email" class="form-label">Email</label>
