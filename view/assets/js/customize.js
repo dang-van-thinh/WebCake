@@ -128,4 +128,18 @@ $(document).ready(function () {
         $('#changePassword').toggle()
     });
 
+
+
+    // login 
+    //check repassword
+    $('#repassword').keyup(function () { 
+       if($(this).val() != $('#password').val()){
+            $(this).removeClass('border-success').addClass('border-danger')
+            
+       }else{
+            $(this).removeClass('border-danger').addClass('border-success')
+       
+       }
+        
+    });
 });

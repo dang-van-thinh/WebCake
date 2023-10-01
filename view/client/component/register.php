@@ -17,7 +17,7 @@
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input
-                    type="text"
+                    type="email"
                     class="form-control"
                     id="email"
                     name="email"
@@ -50,11 +50,11 @@
                     <label class="form-label" for="password">Nhập lại mật khẩu</label>
             
                   </div>
-                  <div class="input-group input-group-merge">
-                    <input
+                  <div class=" input-group input-group-merge">
+                    <input 
                       type="password"
-                      id="password"
-                      class="form-control"
+                      id="repassword"
+                      class="form-control border border-danger"
                       name="repassword"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"

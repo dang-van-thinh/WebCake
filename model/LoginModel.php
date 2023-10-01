@@ -1,35 +1,21 @@
 <?php
 include 'ConnectDB.php';
-
+require_once 'PDO.php';
 function checkLogin($email,$password){
-    $conn = connect();
-    $query = "SELECT * FROM khach_hang WHERE email='$email' AND matkhau=$password";
-    $stmt = $conn->prepare($query);
-    $stmt->execute();
-    $kq = $stmt->fetch();
-    return $kq;
+    $query = "SELECT * FROM khach_hang WHERE email='$email' AND matkhau='$password'";
+    return pdo_query_one($query);
 }
 function checkRegister($email){
-    $conn = connect();
     $query = "SELECT * FROM khach_hang WHERE email='$email'";
-    $stmt = $conn->prepare($query);
-    $stmt->execute();
-    $kq = $stmt->fetch();
-    return $kq;
+    return pdo_query_one($query);
 }
 function register($hoten,$matkhau,$email){
-    $conn= connect();
     $query = "INSERT INTO khach_hang(hoten,matkhau,email,anh) VALUES('$hoten','$matkhau','$email','../upload/img/avatar.jpg')";
-    $stmt = $conn->prepare($query);
-    $stmt->execute();
+   pdo_excute($query);
     return true;
 }
 function checkPhone($phone){
-    $conn = connect();
     $query = "SELECT * FROM khach_hang WHERE phone='$phone'";
-    $stmt = $conn->prepare($query);
-    $stmt->execute();
-    $kq = $stmt->fetch();
-    return $kq;
+    return pdo_query_one($query);
 }
 ?>

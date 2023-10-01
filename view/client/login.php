@@ -1,4 +1,6 @@
-
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
 
 
@@ -32,7 +34,7 @@
     <title>Login</title>
 
     <meta name="description" content="" />
-
+ 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/img/customize/just-shop-logo.png" />
 
@@ -87,6 +89,27 @@
                 include 'component/register.php';
                 break;
               case 'forgot':
+                if(isset($_POST['forgot'])){
+                  include '../../model/quenmk.php';
+                  include '../../model/LoginModel.php';
+                 
+                    $email = $_POST['email'];
+                    if(checkRegister($email) == true){
+                        $kh= checkRegister($email);
+                        
+                        if(sendEmail($email,$kh['matkhau'])){
+                            setcookie('success','Gửi Email thành vui lòng vào email đã đăng ký để xem ',time()+5,'/');
+                        }else{
+                            setcookie('fail','Gửi Email không thành công',time()+5,'/');
+                        }
+                        header('location: ../view/client/login.php');
+                    }else{
+                        setcookie('fail','Email bạn nhập không tồn tại trong hệ thống !',time()+5,'/');
+                        header('location: login.php?lg=forgot');
+                    }
+                
+                  
+                }
                 include 'component/forgot.php';
                 break;
             }
@@ -117,7 +140,8 @@
     <!-- Main JS -->
     <script src="../assets/js/main.js"></script>
 
-    <!-- Page JS -->
+ <!-- customjs -->
+<script src="../assets/js/customize.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>

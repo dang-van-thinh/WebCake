@@ -1,17 +1,6 @@
 <?php
-require_once 'LoginModel.php';
-if(isset($_POST['forgot'])){
-    $email = $_POST['email'];
-    if(checkRegister($email) == true){
-        $kh= checkRegister($email);
-        if(sendEmail($email,$kh['matkhau'])){
-            setcookie('success','Gửi Email thành vui lòng vào email đã đăng ký để xem ',time()+5,'/');
-        }else{
-            setcookie('fail','Gửi Email không thành công',time()+5,'/');
-        }
-        header('location: ../view/client/login.php');
-    }
-}
+
+
 function sendEmail($email,$mk){
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function

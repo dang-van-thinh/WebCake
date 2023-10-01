@@ -46,9 +46,17 @@ if(isset($_GET['act'])){
             if(isset($_GET['iddm'])){
                 $iddm = $_GET['iddm'];
             }
+        
             $loaihh =  getOneLoaiHang($iddm);
             $hh_loai = getHH_Loai($iddm);
             include '../view/client/hanghoa_loai.php';
+        break;
+        case 'search':
+            if(isset($_POST['search'])){
+                $search  = $_POST['search_product'];
+                $hhsearch = loadSearchhh($search);
+            }
+            include '../view/client/search.php';
         break;
         case 'chitiet':
             if(isset($_GET['id']) && (isset($_GET['idloai']))){ 

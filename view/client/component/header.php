@@ -34,9 +34,9 @@
             <ul class="navbar-nav me-5 px-5">
                 <li class="nav-item">
                     <div class="my-2">
-                        <form action="" method="post" class="input-group">
-                            <button name="" type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
-                            <input type="text" name="" id="" class="form-control" placeholder="Tìm kiếm">
+                        <form action="?act=search" method="post" class="input-group">
+                            <button name="search" type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
+                            <input type="text" name="search_product" id="" class="form-control" placeholder="Tìm kiếm">
                         </form>
                     </div>
                 </li>

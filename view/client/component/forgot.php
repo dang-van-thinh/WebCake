@@ -1,12 +1,15 @@
 <div class="card">
             <div class="card-body">
-              <h4 class="mb-2">Thật tồi tệ . Bạn quên mật khẩu? 🔒</h4>
+              <h4 class="mb-2">Thật tồi tệ . Bạn quên mật khẩu?🔒</h4>
               <p class="mb-4">Nhập email để khôi phục mật khẩu </p>
-              <form id="formAuthentication" class="mb-3" action="../../model/quenmk.php" method="POST">
+              <?php if(isset($_COOKIE['fail'])): ?>
+                  <p class="alert alert-danger"> <?=$_COOKIE['fail']?> </p>
+              <?php endif ?>
+              <form id="formAuthentication" class="mb-3 form" action="?lg=forgot" method="POST">
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input
-                    type="text"
+                    type="email"
                     class="form-control"
                     id="email"
                     name="email"
@@ -14,7 +17,8 @@
                     autofocus
                   />
                 </div>
-                <button class="btn btn-primary d-grid w-100" name="forgot">Gửi link đến email</button>
+                <button class="btn btn-primary d-grid w-100" 
+                name="forgot">Gửi link đến email</button>
               </form>
               <div class="text-center">
                 <a href="?lg=login" class="d-flex align-items-center justify-content-center">

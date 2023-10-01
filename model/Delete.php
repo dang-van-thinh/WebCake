@@ -1,20 +1,14 @@
 <?php
 function delKH($idkh){
-    $conn = connect();
     $query = "DELETE FROM khach_hang WHERE ma_kh=$idkh";
-    $stmt = $conn->prepare($query);
-    $stmt->execute();
+    pdo_excute($query);
 }
 function delHH($idhh){
-    $conn = connect();
     $query = "DELETE FROM hang_hoa WHERE ma_hh=$idhh";
-    $stmt = $conn->prepare($query);
-    $stmt->execute();
+    pdo_excute($query);
 }
 function delBl($idbl){
-    $conn = connect();
     $query = "DELETE FROM binh_luan WHERE ma_bl=$idbl";
-    $stmt = $conn->prepare($query);
-    $stmt->execute();
+    pdo_excute($query);
 }
 ?>
