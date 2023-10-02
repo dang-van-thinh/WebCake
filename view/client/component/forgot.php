@@ -1,30 +1,28 @@
-<div class="card">
-            <div class="card-body">
-              <h4 class="mb-2">Thật tồi tệ . Bạn quên mật khẩu?🔒</h4>
-              <p class="mb-4">Nhập email để khôi phục mật khẩu </p>
-              <?php if(isset($_COOKIE['fail'])): ?>
-                  <p class="alert alert-danger"> <?=$_COOKIE['fail']?> </p>
-              <?php endif ?>
-              <form id="formAuthentication" class="mb-3 form" action="?lg=forgot" method="POST">
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email"
-                    autofocus
-                  />
-                </div>
-                <button class="btn btn-primary d-grid w-100" 
-                name="forgot">Gửi link đến email</button>
-              </form>
-              <div class="text-center">
-                <a href="?lg=login" class="d-flex align-items-center justify-content-center">
-                  <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
-                  Trở lại đăng nhập
-                </a>
-              </div>
+
+
+          <div class="public">
+            <div class="login_inner_wrapper ">
+                <form action="?lg=forgot" method="post">
+                    <div class="card p-3 form_login" style="width: 30rem;">
+                        <div class="my-3 mx-auto">
+                            <h3>Quên mật khẩu</h3>
+                        </div>
+                        <?php if(isset($_COOKIE['fail'])): ?>
+                            <p class="alert alert-danger"> <?=$_COOKIE['fail']?> </p>
+                        <?php endif ?>
+                       <div class="mt-3">
+                            <label for="" class="form-label fw-bold">Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Nhập email ..">
+                       </div>
+                       <input type="submit" value="Gửi mã tới Email" class="btn btn-outline-success my-3" name="forgot">
+                       <div class="mt-3">
+                        <span>Bạn đã có tài khoản ?</span>
+                        <a href="?lg=login">Đăng nhập ngay</a>
+                        <div class="mt-3 text-center">
+                            <a href="index.php" class="">Trở về</a>
+                        </div>
+                   </div>
+                    </div>
+                </form>
             </div>
-          </div>
+        </div>

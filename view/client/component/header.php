@@ -14,7 +14,7 @@
               <a class="nav-link" aria-current="page" href="?act=home">Trang chủ</a>
             </li>
             <li class="nav-item mx-3">
-              <a class="nav-link" href="#">Liên hệ</a>
+              <a class="nav-link" href="?act=lienhe">Liên hệ</a>
             </li>
             <li class="nav-item dropdown mx-3">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,7 +76,7 @@
                         </li>
                         <li><hr class="dropdown-divider"></li>
                         <li class="dropdown-item">
-                            <a class="nav-link d-flex text-danger" onclick="return confirm('Bạn có muốn đăng xuất ?')" href="LoginController.php?logout">
+                            <a class="nav-link d-flex text-danger" onclick="return confirm('Bạn có muốn đăng xuất ?')" href="LoginController.php?lg=logout">
                                 <span class="me-auto p2">Đăng xuất</span>
                                 <i class="fas fa-sign-out-alt p2"></i>
                             </a>

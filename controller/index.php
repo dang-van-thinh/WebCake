@@ -35,6 +35,9 @@ if(isset($_GET['act'])){
             $hhtt = getBanhTTTop10();
             include '../view/client/home.php';
         break;
+        case 'lienhe':
+            include '../view/client/lienhe.php';
+        break;
         case 'cart':
             if(isset($_SESSION['idkh'])){
                 $idkh= $_SESSION['idkh'];
@@ -126,10 +129,10 @@ if(isset($_GET['act'])){
             include '../view/client/chitietkhachhang.php';
         break;
         case 'login':
-            header('location: ../view/client/login.php');
+            header('location: LoginController.php');
         break;
         case 'register':
-            header('location: ../view/client/login.php?lg=register');
+            header('location: LoginController.php?lg=register');
         break;
         default:
         $hhtt = getBanhTTTop10();

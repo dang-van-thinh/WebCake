@@ -1,81 +1,42 @@
-<div class="card">
-            <div class="card-body">
-              <p class="mb-4 alert alert-success">Hãy tạo tài khoản đặt hàng ngay thôi</p>
-              <form id="formAuthentication" class="mb-3" action="../../controller/LoginController.php" method="POST">
-              <div class="mb-3">
-                  <label for="hoten" class="form-label">Họ và tên</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="hoten"
-                    name="hoten"
-                    placeholder="Enter your name "
-                    autofocus
-                  />
-                 
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    name="email"
-                    placeholder="Enter your email "
-                    autofocus
-                  />
+<div class="public">
+      <div class="login_inner_wrapper ">
+          <form action="?lg=register" method="post">
+              <div class="card p-3 form_login" style="width: 30rem;">
+                  <div class="my-3 mx-auto">
+                      <h3>Đăng ký</h3>
+                  </div>
                   <?php if(isset($_COOKIE['error'])): ?>
                     <span class="badge text-danger"> <?=$_COOKIE['error']?></span>
                   <?php endif?>
-                </div>
-                <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Mật khẩu</label>
-            
+                  <div class="mt-3">
+                      <label for="email" class="form-label fw-bold">Email</label>
+                      <input type="text" class="form-control" id="email" name="email" placeholder="Nhập email ..">
                   </div>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="password"
-                      id="password"
-                      class="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
-                    />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                  <div class="mt-3">
+                      <label for="hoten" class="form-label fw-bold">Họ tên</label>
+                      <input type="text" class="form-control" id="hoten" name="hoten" placeholder="Nhập email ..">
                   </div>
-                </div>
-                <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Nhập lại mật khẩu</label>
-            
+                  <div class="mt-3">
+                      <label for="password" class="form-label fw-bold">Mật khẩu</label>
+                      <input type="password" id="password" class="form-control" name="password" placeholder="Nhập mật khẩu">
                   </div>
-                  <div class=" input-group input-group-merge">
-                    <input 
-                      type="password"
-                      id="repassword"
-                      class="form-control border border-danger"
-                      name="repassword"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
-                    />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                  <div class="mt-3">
+                  <label for="repassword" class="form-label fw-bold">Nhập lại Mật khẩu</label>
+                  <input type="password" id="repassword" class="form-control border-danger" name="repassword" placeholder="Nhập mật khẩu">
+              </div>
+                  <div class="mt-3 d-flex justify-content-between">
+                      <!-- đăng nhập bằng gg phát triển thêm -->
                   </div>
-                </div>
-                
-                <div class="mb-3">
-                  <input class="btn btn-primary d-grid w-100" type="submit" name="signup" value="Đăng ký">
-                </div>
-              </form>
+                  <input type="submit" value="Đăng ký" class="btn btn-outline-success my-3" name="signup">
+                  <div class="mt-3">
+                  <span>Bạn đã có tài khoản ?</span>
+                  <a href="?lg=login">Đăng nhập ngay</a>
+                  </div>
+                  <div class="mt-3 text-center">
+                      <a href="index.php" class="">Trở về</a>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </div>
 
-              <p class="text-center">
-                <span>Bạn đã có tài khoản ?</span>
-                <a href="?lg=login">
-                  <span>Đăng nhập ngay</span>
-                </a>
-                <div class="mt-3 text-center">
-                    <a href="../../controller/index.php">Trở về</a>
-                </div>
-              </p>
-            </div>
-          </div>

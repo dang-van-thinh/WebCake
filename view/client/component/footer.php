@@ -14,7 +14,6 @@
                                     <i class="fas fa-home"></i>
                                     Phụng Châu - Chương Mỹ - Hà Nội
                                 </p>
-                                
                             </div>
                             <div>
                                 <p>
@@ -68,7 +67,7 @@
             </div>
         </div>
         <div class="bg-warning bg-gradient">
-            <span class="">Copyright &2342 2023</span>
+            <span class="">Đặng Văn Thịnh</span>
             <span class="mx-4 d-flex-inline">Ngày bắt đầu : 11/9/2023</span>
         </div>
     </footer>
