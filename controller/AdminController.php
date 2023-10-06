@@ -10,31 +10,19 @@ if(isset($_SESSION['email']) && isset($_SESSION['password']) && ($_SESSION['role
 ?>
 
 <!DOCTYPE html>
-<html
-  lang="en"
-  class="light-style layout-menu-fixed"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="../view/assets/"
-  data-template="vertical-menu-template-free"
->
+<html lang="en">
   <head>
     <?php include '../view/admin/component/head.php'?>
   </head>
 
   <body>
-    <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
-        <!-- Menu -->
-        <?php include '../view/admin/component/menu.php'?>
-        <!-- / Menu -->
-
-        <!-- Layout container -->
-        <div class="layout-page">
-          <!-- Navbar -->
-          <?php include '../view/admin/component/nav.php'?>
-          <!-- / Navbar -->
+    <!-- Menu -->
+    <?php include '../view/admin/component/menu.php'?>
+    <!-- / Menu -->
+    <!-- Navbar -->
+    <?php include '../view/admin/component/nav.php'?>
+    <!-- / Navbar -->
+         
 
     <!-- home page -->
 <?php
@@ -215,9 +203,6 @@ if(isset($_GET['ad'])){
 }
 ?>
     <!--end home page -->
-        </div>
-    </div>
-</div>
 
 <?php include '../view/admin/component/script.php'?>
 

@@ -1,16 +1,9 @@
-// $(document).ready(function () {
-//     $('#formComment').submit(function (e) { 
-        
-//         var formData = $(this).serialize();
-//             $.ajax({
-//                 type: "POST",
-//                 url: "submit.php",
-//                 data: formData,
-//                 dataType: "JSON",
-//                 success: function (response) {
-//                     console.log('okee ');
-//                 }
-//             });
-//     });
-
-// });
+$(document).ready(function () {
+   var menu_item = $('#menu_admin');
+   menu_item.find('li.nav-item').hover(function(){
+    $(this).addClass('bg-body-secondary')
+    
+   },function(){
+    $(this).removeClass('bg-body-secondary')
+   })
+});
