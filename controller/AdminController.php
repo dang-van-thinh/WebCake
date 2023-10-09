@@ -33,12 +33,18 @@ if(isset($_GET['ad'])){
         break;
         //hàng hóa
         case 'dshh':
-            if(isset($_POST['key'])){
-                $data = $_POST['key'];
-                echo $data;
-                header('location: ../model/jquery.php');
+            //perpage
+            $pagehientai = 1;
+            if(isset($_GET['offset'])){
+                $pagehientai = $_GET['offset'];
             }
-            $hh = getAllHangHoa();
+            $item_perpage = 10;
+            $totalPro = totalHangHoa();
+            extract($totalPro);
+                $number_curent = intval($sl) / $item_perpage;
+                
+                $offset = ($pagehientai - 1) * $item_perpage;
+            $hh = getAllHangHoaPerpage($item_perpage,$offset);
             if(isset($_GET['idhh'])){
                 $idhh = $_GET['idhh'];
                 delHH($idhh);

@@ -13,8 +13,8 @@ $(document).ready(function () {
 
     $('.addToCart').click(function (e) {
         e.preventDefault();
-        let img = $(this).parents('.product-item').find("img").attr("src")
-        let title = $(this).parents('.product-item').find('.card-title').text()
+        var img = $(this).parents('.product-item').find("img").attr("src")
+        var title = $(this).parents('.product-item').find('.card-title').text()
         var price = $(this).parents('.product-item').find('#price').text()
         let id = $(this).parents('.product-item').find('#idHangHoa').val()
 
@@ -140,6 +140,9 @@ $(document).ready(function () {
             $(this).removeClass('border-danger').addClass('border-success')
        
        }
-        
     });
+
+
+    //click lọc hàng hóa
+
 });

@@ -63,12 +63,6 @@
                             </a>
                         </li>
                         <li class="dropdown-item">
-                            <a class="nav-link d-flex text-warning" href="#">
-                                <span class=" me-auto p2">Cài đặt</span>
-                                <i class="fas fa-cog p2"></i>
-                            </a>
-                        </li>
-                        <li class="dropdown-item">
                             <a class="nav-link d-flex text-info" href="#">
                                 <span class="me-auto p2">Đơn hàng</span>
                                 <i class="fas fa-truck p2"></i>

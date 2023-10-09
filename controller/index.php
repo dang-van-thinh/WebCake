@@ -35,6 +35,7 @@ if(isset($_GET['act'])){
             $hhtt = getBanhTTTop10();
             include '../view/client/home.php';
         break;
+        
         case 'lienhe':
             include '../view/client/lienhe.php';
         break;
@@ -49,9 +50,9 @@ if(isset($_GET['act'])){
             if(isset($_GET['iddm'])){
                 $iddm = $_GET['iddm'];
             }
-        
+            
             $loaihh =  getOneLoaiHang($iddm);
-            $hh_loai = getHH_Loai($iddm);
+            $hh_loai = getHH_Loai($iddm,$filter);
             include '../view/client/hanghoa_loai.php';
         break;
         case 'search':

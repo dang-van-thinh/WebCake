@@ -39,8 +39,12 @@ function getOneLoaiHang($idlh){
 }
 // end loại hàng
 //  hàng hóa
-function getAllHangHoa(){
-    $query = "SELECT * FROM hang_hoa";
+function totalHangHoa(){
+    $query = "SELECT COUNT(*) as sl FROM  hang_hoa ";
+    return pdo_query_one($query);
+}
+function getAllHangHoaPerpage($item_perpage , $offset){
+    $query = "SELECT * FROM hang_hoa ORDER BY ma_hh DESC LIMIT $item_perpage OFFSET $offset ";
     return pdo_query($query);
 }
 function loadSearchhh($search){
@@ -69,8 +73,15 @@ function getBanhTop4($idloai){
 }
 
 
-function getHH_Loai($iddm){
-    $query = "SELECT * FROM hang_hoa WHERE ma_loai='$iddm' ";
+function getHH_Loai($iddm,$filter=''){
+    $query = "SELECT * FROM hang_hoa WHERE ma_loai='$iddm'  ";
+    if($filter != ''){
+        if($filter == 1){
+            $query.= "ORDER BY ASC";
+        }else if($filter == 2){
+            $query.= "ORDER BY DESC";
+        }
+    }
     return pdo_query($query);
 }
 

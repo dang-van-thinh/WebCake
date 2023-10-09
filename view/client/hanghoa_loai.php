@@ -7,9 +7,12 @@
         <div class="my-3 ">
             <form action="" method="post" class="p-4">
                 <div class="btn-group">
-                    <h5 class="">Sắp xếp theo: </h5>
-                    <input type="submit" name="" value="Từ thấp đến cao" class="btn_filter">
-                    <input type="submit" name="" value="Từ cao xuống thấp">
+                    <select name="filters" id="filter">
+                        <option value="0" selected>Sắp xếp theo giá</option>
+                        <option value="1">tháp</option>
+                        <option value="2">Từ cao -> thấp</option>
+                    </select>
+                    <input type="submit" name="filter" value="submit">
                 </div>
             </form>
         </div>
