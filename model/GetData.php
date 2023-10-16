@@ -73,9 +73,9 @@ function getBanhTop4($idloai){
 }
 
 
-function getHH_Loai($iddm,$filter=''){
+function getHH_Loai($iddm,$filter=0){
     $query = "SELECT * FROM hang_hoa WHERE ma_loai='$iddm'  ";
-    if($filter != ''){
+    if($filter != 0){
         if($filter == 1){
             $query.= "ORDER BY ASC";
         }else if($filter == 2){
@@ -108,5 +108,15 @@ function getBLHangHoa($idhh){
 }
 //end bình luận
 
+// thống kê
+function thong_ke_sp_theo_loai(){
+    $query = "SELECT loai.ten_loai, loai.ma_loai , COUNT(hh.ma_hh) as sl,AVG(hh.don_gia) as tb ,MIN(hh.don_gia) as min,MAX(hh.don_gia) as max 
+    FROM loai JOIN hang_hoa hh 
+    ON loai.ma_loai = hh.ma_loai 
+    GROUP BY loai.ten_loai , loai.ma_loai 
+    ORDER BY sl DESC
+    ";
+    return pdo_query($query);
+}
 
 ?>

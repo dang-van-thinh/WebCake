@@ -29,6 +29,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['password']) && ($_SESSION['role
 if(isset($_GET['ad'])){ 
     switch($_GET['ad']){ 
         case 'home':
+            $thongke = thong_ke_sp_theo_loai();
             include '../view/admin/home.php';
         break;
         //hàng hóa
@@ -201,11 +202,19 @@ if(isset($_GET['ad'])){
             include '../view/admin/loai-hang/dsloaihang.php';
         break;
         //thống kê
-        default: include '../view/admin/home.php';
+        case 'thongkebd':
+            $thongke = thong_ke_sp_theo_loai();
+            include '../view/admin/thong-ke/thongkebieudo.php';
+        break;
+        default: 
+            $thongke = thong_ke_sp_theo_loai();
+            include '../view/admin/home.php';
         break;
     }
 }else{
+    $thongke = thong_ke_sp_theo_loai();
     include '../view/admin/home.php';
+   
 }
 ?>
     <!--end home page -->

@@ -45,7 +45,7 @@
               </a>
             </li>
             <li class="nav-item mb-3">
-              <a href="?ad=thongke" class="nav-link d-flex mx-4">
+              <a href="?ad=thongkebd" class="nav-link d-flex mx-4">
                 <i class="nav-icon fas fa-chart-pie"></i>
                 <div>Thống kế biểu đồ </div>
               </a>
